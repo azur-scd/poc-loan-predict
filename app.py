@@ -36,6 +36,7 @@ def load_data():
 
 data = load_data()
 
+@st.cache(suppress_st_warning=True)
 def filtered_data(data,date,bibs):
     df = data[(data.date_pub.astype(int) >= int(date[0])) & (data.date_pub.astype(int) <= int(date[1])) & (data.bib.isin(bibs))]
     return df
